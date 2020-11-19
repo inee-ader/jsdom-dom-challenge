@@ -3,7 +3,6 @@ const likesUl = document.querySelector('.likes')
 let timer; 
 
 function startTimer() {
-
     const counter = document.getElementById('counter')
     console.log(counter.innerText)
     timer = setInterval(() => {
@@ -11,28 +10,31 @@ function startTimer() {
     }, 1000)
 }
 startTimer()
+
 // 2. As a user, I can manually increment and decrement the counter using the plus and minus buttons.
+
 function plus() {
     const btn = document.getElementById('plus')
-    btn.addEventListener('click', incrementCounter)
+    btn.addEventListener('click', ()=> manualChanger(false))
 }
 plus() 
 
-function incrementCounter() {
-    const counter = document.getElementById('counter')
-    counter.innerText--
-}
-
 function minus() {
     const btn = document.getElementById('minus')
-    btn.addEventListener('click', decrementCounter)
+    btn.addEventListener('click',()=> manualChanger(false))
 }
 minus() 
 
-function decrementCounter() {
+function manualChanger(isPlus) {
     const counter = document.getElementById('counter')
-    counter.innerText--
+    if(isPlus) {
+        counter.innerText++
+    }
+    else {
+        counter.innerText--
+    }
 }
+
 
 // 3. As a user, I can 'like' an individual number of the counter. I should see count of the number of 'likes' associated with that number.
 function like() {
